@@ -2,14 +2,14 @@ var INVALID_WORDS = [	// Locked words... Example: "f*ck"
 	"invalid"
 ];
 
-var ESCAPE = {
+/*var ESCAPE = {
 	"&": "&amp;",
 	"<": "&lt;",
 	">": "&gt;",
 	'"': "&quot;",
 	"'": "&#x27;",
 	"/": "&#x2F;"
-}
+}*/
 
 function checkBadWords(text) {
 	var rawText = text;

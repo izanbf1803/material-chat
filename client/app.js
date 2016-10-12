@@ -7,7 +7,7 @@ const TOAST_TYPE = [
 var Chat = angular.module("AngularChat", [])
 
 .factory("socket", ['$rootScope', function($rootScope) {
-  var socket = io.connect("192.168.1.200:443");
+  var socket = io.connect("192.168.1.200:8080");
 
   return {
 	on: function(eventName, callback){
