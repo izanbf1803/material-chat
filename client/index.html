@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="AngularChat">
+	<head>
+		<meta charset="utf-8">
+		<meta name="owner" content="Izan Beltrán">
+		<meta name="author" content="izanbf.es">
+		<meta name="description" content="Chat online sin registro y gratis!">
+		<meta name="keywords" content="chat, free, online">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>Chat</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	</head>
+	<body ng-controller="chat" ng-show="init">
+		<div id="join">
+			<div id="join-form">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="name-input">
+							<span class="fa fa-user user-icon" aria-hidden="true"></span>Nick
+						</label>
+						<input type="text" id="name-input" ng-keypress="keypress($event, 'join()')" ng-model="nickname">
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<button type="submit" class="waves-effect waves-light btn btn-success" ng-click="join()">Join</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="chat">
+			<div id="messages">
+				<ul class="collection">
+					<li ng-repeat="data in messages track by $index" class="collection-item {{data.style}}" id="chat-message-{{data.id}}" hidden>
+						<strong class="msg">{{data.user}}</strong>
+						<br>
+						<span class="msg flow-text">{{data.message}}</span>
+					</li>
+				</ul>
+			</div>
+			<div id="message-form">
+				<div class="row">
+					<div class="">
+						<input type="text" ng-keypress="keypress($event, 'send()')" id="message-input" ng-model="text">
+					</div>
+					<div class="">
+						<button type="submit" class="waves-effect waves-light btn btn btn-success" ng-click="send()">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div id="alert">
+			<div id="alert-panel">
+				<span id="alert-msg" ng-bind="alertText"></span>
+			</div>
+		</div>-->
+		<div id="alert" class="modal">
+			<div class="modal-content">
+				<h4></h4>
+				<p ng-bind="alertText"></p>
+			</div>
+			<div class="modal-footer">
+				<button ng-click="closeAlert()" class="waves-effect waves-green btn-flat">OK</button>
+			</div>
+		</div>
+		<!---->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="app.js"></script>
+	</body>
+
+</html>

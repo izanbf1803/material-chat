@@ -1,0 +1,126 @@
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 992px;
+
+* {
+	outline: none;
+}
+
+body {
+	background-color: #eeeeee;
+}
+
+button, .msg-toast, label {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+#alert {
+	top: 25% !important;
+}
+
+#join {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	z-index: 2;
+
+	#join-form {
+		position: relative;
+		width: 20%;
+		left: 40%;
+		height: 50%;
+		top: 25%;
+		@media screen and (max-width: $desktop) {	
+			width: 95%;
+			left: 2.5%;
+		}	
+
+		.user-icon {
+			font-size: 200%;
+			margin-right: 5px;
+		}
+	}
+}
+
+#chat {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+	#messages {
+		top: 0;
+		height: calc(100% - 60px); /*60px = message-form size*/
+		width: calc(100% + 17px);
+		overflow-y: scroll;
+		position: fixed;
+		background-color: #fafafa;
+
+		strong.msg {
+			font-size: 16px;
+		}	
+		span.msg {
+			font-size: 16px;
+			display: block;
+			word-wrap: break-word;
+		}
+
+		.notification-alert {
+			color: #f44336;
+			background-color: #ffcdd2;
+		}
+		.notification-succes {
+			color: #388e3c;
+			background-color: #c8e6c9;
+		}
+	}
+
+	#message-form {
+		bottom: 10px;
+		height: 50px;
+		width: 100%;
+		position: fixed;
+		
+
+		input {
+			position: fixed;
+			width: 87.5%;
+			left: 2.5%;
+
+			@media screen and (max-width: $tablet) {	
+				width: 85%;
+			}
+		}
+
+		button {
+			position: fixed;
+			width: 7%;
+			right: 1.5% !important;
+			padding: 0 0;
+			bottom: 15px;
+
+			@media screen and (max-width: $tablet) {
+				width: 10%;		
+				right: 2%;
+				font-size: 11px;
+			}
+		}
+	}
+}
+
+.msg-error {
+	color:#e53935;
+}
+.msg-succes {
+	color: #00e676;
+}
